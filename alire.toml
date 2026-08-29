@@ -1,0 +1,11 @@
+name = "ada_examples"
+description = "An example of Ada Programming Languages"
+version = "0.1.0-dev"
+
+authors = ["Eyad"]
+maintainers = ["Eyad <eyadm@canadian_gamer.com>"]
+licenses = "MIT"
+website = ""
+tags = []
+
+executables = ["ada_examples"]
