@@ -1,11 +1,12 @@
 -- Packages
 with Ada.Text_IO; -- Text Package
 with Ada.Command_Line; -- Command Line Package
-procedure Ada_Examples is
+procedure Ada_Ex is
+
 -- Variables
 -- var syntax: var_name : var_type := value;
 HelloWorld : String :="HELLO World!";
-
+x : Integer := 1; 
 
 begin
 -- Hello World
@@ -23,4 +24,6 @@ for NEXT in 1 .. Ada.Command_Line.Argument_Count loop
       Ada.Text_IO.Put_Line (Integer'Image (NEXT) & ": " & VALUE);
    end;
 end loop;
-end Ada_Examples;
+
+Ada.Text_IO.Put_Line(Integer'Image (x));
+end Ada_Ex;
