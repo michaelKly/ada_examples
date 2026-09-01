@@ -22,7 +22,7 @@ alr run
 Pass arguments through to see the loop in action:
 
 ```bash
-alr run -a one two three
+alr run --args "one two three"
 ```
 
 ## Example output
