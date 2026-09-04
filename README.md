@@ -2,7 +2,7 @@
 
 **CSC 436 — Programming Languages, Assignment 1**
 
-Learning **Ada** — one example program at a time.
+Learning **Ada**
 
 ## About
 
@@ -113,5 +113,10 @@ alr run -- one two three
 | Role | Name |
 |------|------|
 | GitHub / repo maintainer | Eyad |
+| Collaborator     | Marta |
+| Collaborator |Micheal F |
+| Collaborator | Mike K   |
+| Collaborator | Ved      |   
+ 
 
-Group #1 — learning Ada together, one small program at a time.
+Group #1 — 
