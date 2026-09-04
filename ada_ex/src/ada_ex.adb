@@ -4,6 +4,8 @@ with Ada.Command_Line; -- Command Line Package
 with Ada.Real_Time; -- Real Time Package
 with Ada.Calendar; -- Calendar Package
 with Ada.Calendar.Formatting;
+with hello; -- Import the hello procedure from hello.adb
+with Ada.Command_Line; -- Command Line Package
 
 procedure Ada_Ex is
 
@@ -11,12 +13,29 @@ procedure Ada_Ex is
    -- var syntax: var_name : var_type := value;
    HelloWorld : String := "HELLO World!";
    x : Integer := 1; 
+   -- Something like HelloWorld : Integer := "Hello World!"; will not work because the type of the variable is integer and the value is a string. Showing how Ada is a strongly typed language.
 
-   -- time
+   -- Real-Time Delay
    Time_1 : Ada.Calendar.Time;
    Time_2 : Ada.Calendar.Time;
    Next_Time : Ada.Real_Time.Time;
    
+   -- range contraints
+   y : Integer range 1 .. 10 := 5; -- variable y is constrained to be between 1 and 10, inclusive
+
+   -- Tasks example
+   task Hello_Task;
+   task Goodbye_Task;
+
+   task body Hello_Task is
+   begin
+      Ada.Text_IO.Put_Line ("Hello World! from Hello_Task");
+   end Hello_Task;
+
+   task body Goodbye_Task is
+   begin
+      Ada.Text_IO.Put_Line ("Goodbye World! from Goodbye_Task");
+   end Goodbye_Task;
 
 begin
    -- Hello World
@@ -41,13 +60,32 @@ begin
 
    Time_1 := Ada.Calendar.Clock; -- Get the current time before the delay
    Ada.Text_IO.Put_Line ("Hello World! First " & Ada.Calendar.Formatting.Image (Time_1));
-
    -- Wait until the scheduled time
    Next_Time := Ada.Real_Time."+"(Ada.Real_Time.Clock, Ada.Real_Time.Seconds (5)); -- Schedule the next execution exactly 5 seconds from now
    delay until Next_Time; -- Wait until the scheduled time
-
-
    Time_2 := Ada.Calendar.Clock; -- Get the current time after the delay
    Ada.Text_IO.Put_Line ("Hello World! Second " & Ada.Calendar.Formatting.Image (Time_2));
+
+
+   -- Range Constraint Example
+   Ada.Text_IO.Put_Line ("The value of y is: " & Integer'Image(y));
+
+
+   -- procedure call example
+   hello; -- Call the hello procedure from hello.adb
+
+
+
+-- exception handling example
+   Ada.Text_IO.Put_Line
+     ("Argument: " & Ada.Command_Line.Argument (1));
+
+
+
+exception
+
+   when Constraint_Error =>
+      Ada.Text_IO.Put_Line ("Invalid command-line argument.");
+
 
 end Ada_Ex;
